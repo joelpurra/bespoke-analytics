@@ -1,6 +1,6 @@
 {
     "name": "bespoke-analytics",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Visitor analysis per slide in your Bespoke.js presentation",
     "homepage": "https://github.com/joelpurra/bespoke-analytics",
     "bugs": "https://github.com/joelpurra/bespoke-analytics/issues",

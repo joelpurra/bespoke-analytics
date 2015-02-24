@@ -1,5 +1,5 @@
 /*!
- * bespoke-analytics v1.0.0
+ * bespoke-analytics v1.0.1
  *
  * Copyright 2015, Joel Purra
  * This content is released under the MIT license
