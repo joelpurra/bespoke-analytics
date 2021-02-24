@@ -6,7 +6,7 @@
     "bugs": "https://github.com/joelpurra/bespoke-analytics/issues",
     "author": {
         "name": "Joel Purra",
-        "url": "http://joelpurra.com/"
+        "url": "https://joelpurra.com/"
     },
     "main": "./lib/bespoke-analytics.js",
     "repository": {
@@ -56,10 +56,12 @@
     "engines": {
         "node": ">=0.10.0"
     },
-    "licenses": [{
-        "type": "MIT",
-        "url": "http://joelpurra.mit-license.org/2015"
-    }],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://joelpurra.mit-license.org/2015"
+        }
+    ],
     "keywords": [
         "bespoke-plugin"
     ]

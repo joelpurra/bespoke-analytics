@@ -67,18 +67,18 @@ $ bower install bespoke-analytics
 
 ## Credits
 
-[Mark Dalgleish](http://markdalgleish.com/) for [bespoke.js][bespoke.js] and related tools. This plugin was built with [generator-bespokeplugin](https://github.com/markdalgleish/generator-bespokeplugin).
+[Mark Dalgleish](https://markdalgleish.com/) for [bespoke.js][bespoke.js] and related tools. This plugin was built with [generator-bespokeplugin](https://github.com/markdalgleish/generator-bespokeplugin).
 
-Thanks [Hans](http://pixabay.com/en/users/Hans-2/) for the [Snow Traces Footprints White](http://pixabay.com/en/snow-traces-footprints-white-81338/) (CC0 license) image!
+Thanks [Hans](https://pixabay.com/en/users/Hans-2/) for the [Snow Traces Footprints White](https://pixabay.com/en/snow-traces-footprints-white-81338/) (CC0 license) image!
 
 My best friend, [bespoke-convenient](https://github.com/joelpurra/bespoke-convenient), for continued support - rain and shine. I love you, man.
 
 
 ## License
 
-Copyright (c) 2015, [Joel Purra](http://joelpurra.com/) All rights reserved.
+Copyright (c) 2015, [Joel Purra](https://joelpurra.com/) All rights reserved.
 
-When using bespoke-analytics, comply to the [MIT license](http://joelpurra.mit-license.org/2015). Please see the LICENSE file for details, and the [MIT License on Wikipedia](http://en.wikipedia.org/wiki/MIT_License).
+When using bespoke-analytics, comply to the [MIT license](https://joelpurra.mit-license.org/2015). Please see the LICENSE file for details, and the [MIT License on Wikipedia](https://en.wikipedia.org/wiki/MIT_License).
 
 [bespoke.js]: https://github.com/markdalgleish/bespoke.js
 [default-events]: https://github.com/markdalgleish/bespoke.js#events
