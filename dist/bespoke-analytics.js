@@ -1,9 +1,9 @@
 /*!
- * bespoke-analytics v1.0.0
+ * bespoke-analytics v1.0.1
  *
- * Copyright 2015, Joel Purra
+ * Copyright 2021, Joel Purra
  * This content is released under the MIT license
- * http://joelpurra.mit-license.org/2015
+ * https://joelpurra.mit-license.org/2015
  */
 
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var n;"undefined"!=typeof window?n=window:"undefined"!=typeof global?n=global:"undefined"!=typeof self&&(n=self);var o=n;o=o.bespoke||(o.bespoke={}),o=o.plugins||(o.plugins={}),o.analytics=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
@@ -19,17 +19,44 @@ var pluginName = "analytics",
     convenient = ((browserGlobal.bespoke && browserGlobal.bespoke.plugins && browserGlobal.bespoke.plugins.convenient) || _dereq_("bespoke-convenient")),
     cv = convenient.builder(pluginName),
 
-    isTrackingEnabled = function() {
+    isDNTEnabled = function() {
         // This code has been duplicated elsewhere in this project.
-        // http://stackoverflow.com/questions/23933650/javascript-only-detection-of-do-not-track-settings-in-ie11
-        // http://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript/16947583#16947583
-        // http://www.w3.org/TR/tracking-dnt/#js-dom
-        // http://www.w3.org/TR/tracking-dnt/#dnt-header-field
+        // https://stackoverflow.com/questions/23933650/javascript-only-detection-of-do-not-track-settings-in-ie11
+        // https://stackoverflow.com/questions/16947459/is-it-possible-to-check-the-value-of-firefox-dnt-with-javascript/16947583#16947583
+        // https://www.w3.org/TR/tracking-dnt/#js-dom
+        // https://www.w3.org/TR/tracking-dnt/#dnt-header-field
         var isDNT = window.doNotTrack === "yes" || window.doNotTrack === "1" ||
             window.msDoNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.doNotTrack === "1" ||
             navigator.msDoNotTrack === "1" || false;
 
-        return !isDNT;
+        return isDNT;
+    },
+
+    isTestRun = function() {
+        var ua = navigator.userAgent || "",
+            isPhantomJs = (ua.toLowerCase().indexOf("phantomjs") !== -1);
+
+        return isPhantomJs;
+    },
+
+    isTrackableDomain = function() {
+        var hostname = document.location.hostname;
+
+        // A test run check should not be here, but changing the default bespoke
+        // plugin test setup to not use "localhost" or "127." seems harder.
+        if (isTestRun()) {
+            return true;
+        }
+
+        if ((hostname === "localhost" || hostname.startsWith("127."))) {
+            return false;
+        }
+
+        return true;
+    },
+
+    isTrackingEnabled = function() {
+        return isTrackableDomain() && !isDNTEnabled();
     },
 
     plugin = function(options) {
